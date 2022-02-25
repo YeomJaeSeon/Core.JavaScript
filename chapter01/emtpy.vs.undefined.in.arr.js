@@ -8,7 +8,7 @@ arr2[1] = 1;
 
 arr1.forEach(function (v, i){ console.log(v, i);});
 arr2.forEach((v, i) => console.log(v, i));
-
+ 
 let arr1_v1 = arr1.map((v, i) => v + i);
 let arr2_v1 = arr2.map((v, i) => v + i);
 console.log("//==v1==//")
