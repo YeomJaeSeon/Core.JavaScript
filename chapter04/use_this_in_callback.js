@@ -64,3 +64,5 @@ setTimeout(obj1.func.bind(obj1), 1000) //bind는 thisBinding하고있는 함수�
 
 var obj2 = {name: 'obj2'}
 setTimeout(obj1.func.bind(obj2), 1500)
+
+

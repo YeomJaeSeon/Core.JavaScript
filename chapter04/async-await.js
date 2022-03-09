@@ -27,3 +27,5 @@ var coffeeMaker = async function(){
 }
 
 coffeeMaker();
+
+[1, 2, 3].map()
