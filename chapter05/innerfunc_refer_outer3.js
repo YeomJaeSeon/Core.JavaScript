@@ -5,3 +5,5 @@ var outer = function (){
     }
     return inner;
 }
+
+var ou
