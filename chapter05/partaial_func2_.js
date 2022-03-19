@@ -7,6 +7,7 @@ var partial = function(){
     return function(){
         var partialArgs = Array.prototype.slice.call(originalPartialArgs, 1);
         var restArgs = Array.prototype.slice.call(arguments);
+
         return func.apply(this, partialArgs.concat(restArgs))
     }
 }
