@@ -13,15 +13,18 @@ var Person = function(name){
 // console.log(person._name)
 
 Person.prototype.getName = function(){
+    console.log("나 실행!")
+    console.log(this)
     return this._name;
 }
 
-var suzi = new Person('suzi');
+var suzi = new Person('Suzi');
 // console.log(suzi.__proto__)
 // console.log(Person.prototype)
 //같은걸 바라보네. - intance의 __proto__ 객체는 Constructor(생성자 함수)의 prototype객체를 참조한다.
 
-console.log(suzi)
-
 console.log(suzi.__proto__.getName())
-console.log(suzi.getName()) // 인스턴스의 __proto__는 생략가능하다. - 그냥 코런갑다하자.
+// console.log(suzi.getName()) // 인스턴스의 __proto__는 생략가능하다. - 그냥 코런갑다하자.
+console.log(suzi.getName())
+
+// new 연산자로 Constructor를 호출하면 instance가 만들어지는데, 이 instance의 생략 가능한 프로퍼티인 __proto__는 Constructor의 prototype을 참조한다. 
