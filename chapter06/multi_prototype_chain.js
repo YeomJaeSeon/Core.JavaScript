@@ -10,7 +10,7 @@ var g = new Grade(100, 80); // g.__proto__ -> Grade.prototype.__proto__ -> Objec
 
 console.log(g);
 console.log(g.__proto__);
-console.log(Grade.prototype.constructor);
+console.log(Grade.prototype.constructor === Grade);
 
 Grade.prototype = []; //prototype이 바라보는대상을 Array 생성자 함수의 인스턴스로..!!
 
