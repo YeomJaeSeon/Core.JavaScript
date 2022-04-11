@@ -32,7 +32,7 @@ function fetchUser(){
 }
 
 fetchUser().then(function (response){
-  // response.address.cit
+  // response.address
 })
 
 function startApp() {
