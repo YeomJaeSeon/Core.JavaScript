@@ -8,4 +8,10 @@ function add(): number{
     return 10;
 }
 
-sum2(1, 2, 3, 4) 
+sum2(1, 2) 
+
+//함수의 옵셔널 파라미터
+function log(a: string, b?: string, c?: string){
+}
+
+log('hi', '1')
