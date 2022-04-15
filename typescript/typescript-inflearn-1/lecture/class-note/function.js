@@ -4,3 +4,7 @@ function sum(a, b){
 }
 
 sum(1, 2, 3, 4, 5)
+
+// interface User{
+//     name: string
+// }
