@@ -1,12 +1,12 @@
 interface User{
     age: number;
-    name: string
+    name: string;
 }
 
 // 변수에 인터페이스 활용
 var seho: User = {
     age: 10,
-    name: "세호"
+    name: "세호",
 }
 
 // 함수에 인터페이스 활용
@@ -43,5 +43,67 @@ interface StringArray{
     [index: number]: string
 }
 
-var arr: StringArray = ['a', 'b', 'c']
+const arr: StringArray = ['a', 'b', 'c']
 arr[0] = 'table';
+
+// 딕셔너리 패턴
+// - 객체의 key의 타입도 지정할수있다 .파이선의 딕셔너리처럼.
+interface StringRegexDictionary{
+    [key: string]: RegExp // 프로퍼티의 key타입을 지정할수도있다 이렇게. 
+}
+
+var obj: StringRegexDictionary = {
+    1: /abc/,
+    2: /\.css$/,
+    3: /\.js$/,
+}
+obj[1] = /abc/
+
+Object.keys(obj).forEach(function(value){
+    console.log(typeof value)
+})
+
+obj['hello'] = /abc/
+
+// 인터페이스 확장
+interface Person{
+    name: string;
+    age: number
+}
+
+interface Developer extends Person{
+    language: string
+}
+
+var dev1: Developer = {
+    name: '염재선', 
+    age: 10,
+    language: 'javascript'
+}
+
+// test
+enum Gender{
+    MALE = 'male',
+    FEMALE = 'female'
+}
+interface MyInterType{
+    name: string;
+    age: number;
+    gender: Gender;
+    getAge(): number;
+    sum(a: number, b: number): number;   
+}
+
+const man: MyInterType = {
+    name: '염재선',
+    age: 5,
+    gender: Gender.MALE,
+    getAge: () => 5,
+    sum(a, b){
+        return a + b
+    }
+}
+
+console.log(man.getAge())
+console.log(man.sum(10, 20))
+

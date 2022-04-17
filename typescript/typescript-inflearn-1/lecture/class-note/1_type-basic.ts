@@ -1,3 +1,4 @@
+{
 //JS 문자열선언
 var str = '안녕'
 
@@ -31,3 +32,4 @@ let improvedPerson: { name: string, age: number} = {
 
 // TS 진위값(boolean)
 let show: boolean = true
+}
