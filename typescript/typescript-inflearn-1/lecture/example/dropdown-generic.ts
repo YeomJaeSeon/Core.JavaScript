@@ -1,16 +1,34 @@
-const emails = [
+interface GItem<T>{
+  value: T;
+  selected: boolean
+}
+
+// interface Email{
+//   value: string;
+//   selected: boolean;
+// }
+
+const emails: GItem<string>[] = [
   { value: 'naver.com', selected: true },
   { value: 'gmail.com', selected: false },
   { value: 'hanmail.net', selected: false },
 ];
 
-const numberOfProducts = [
+// interface ProductNumber{
+//   value: number;
+//   selected: boolean
+// }
+// interface TrueFalse{
+//   value: boolean;
+//   selected: boolean
+// }
+const numberOfProducts: GItem<number>[] = [
   { value: 1, selected: true },
   { value: 2, selected: false },
   { value: 3, selected: false },
 ];
 
-function createDropdownItem(item) {
+function createDropdownItem<T>(item: GItem<T>) {
   const option = document.createElement('option');
   option.value = item.value.toString();
   option.innerText = item.value.toString();
@@ -24,3 +42,7 @@ emails.forEach(function (email) {
   const selectTag = document.querySelector('#email-dropdown');
   selectTag.appendChild(item);
 });
+
+numberOfProducts.forEach(function (product){
+  const item = createDropdownItem(product)
+})
