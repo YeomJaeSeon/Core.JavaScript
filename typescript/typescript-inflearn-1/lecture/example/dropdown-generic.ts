@@ -1,4 +1,4 @@
-interface GItem<T>{
+interface DropdownItem<T>{
   value: T;
   selected: boolean
 }
@@ -8,7 +8,7 @@ interface GItem<T>{
 //   selected: boolean;
 // }
 
-const emails: GItem<string>[] = [
+const emails: DropdownItem<string>[] = [
   { value: 'naver.com', selected: true },
   { value: 'gmail.com', selected: false },
   { value: 'hanmail.net', selected: false },
@@ -22,13 +22,13 @@ const emails: GItem<string>[] = [
 //   value: boolean;
 //   selected: boolean
 // }
-const numberOfProducts: GItem<number>[] = [
+const numberOfProducts: DropdownItem<number>[] = [
   { value: 1, selected: true },
   { value: 2, selected: false },
   { value: 3, selected: false },
 ];
 
-function createDropdownItem<T>(item: GItem<T>) {
+function createDropdownItem<T>(item: DropdownItem<T>) {
   const option = document.createElement('option');
   option.value = item.value.toString();
   option.innerText = item.value.toString();

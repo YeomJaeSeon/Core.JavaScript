@@ -50,4 +50,4 @@ function getAllowedOptions<T extends keyof ShoppingItems>(option: T): T {
 }
 getAllowedOptions('nothing');
 // const a = getAllowedOptions('name');
-// a.toUpperCase(); // Name
+// a.toUpperCase(); // Name1

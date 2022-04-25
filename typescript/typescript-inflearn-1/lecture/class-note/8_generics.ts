@@ -61,3 +61,47 @@ str.split('').reverse().join('')
 const flag = logText<boolean>(true);
 const number = logText<number>(10)
 number.toFixed()
+
+// 지네릭 타입 제한
+function logTextLength<T>(text: T[]): T[]{
+    console.log(text.length)
+    text.forEach(function (text) { 
+        console.log(text)
+    })
+    return text
+}
+
+logTextLength<string>(['hi', 'abc'])
+
+// 지네릭 타입 제한 2 - 정의된 타입 이용하기
+interface LengthType{
+    length: number;
+}
+// T에 들어올 타입은 이미 정의된 인터페이스인 LengthType을 확장한것일것이다. === LengthType인터페이스의 타입들을 최소한 가지고있다.
+function logTextLength2<T extends LengthType>(text: T): T{
+    text.length;
+    return text
+}
+
+logTextLength2('a')
+// logTextLength2(10) 10에는 length프로퍼티가 없기때문에 린트에러난다.
+logTextLength2({length: 10, name: 'yeom', age: 10})
+
+
+// 지네릭 타입제한3 - keyof
+interface ShoppingItem{
+    name: string;
+    price: number;
+    stock: number;
+}
+
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T{
+    return itemOption
+}
+
+// getShoppingItemOption(10);
+// getShoppingItemOption<string>('a')
+
+getShoppingItemOption('name')
+getShoppingItemOption('price')
+getShoppingItemOption('stock')
