@@ -105,3 +105,20 @@ function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T{
 getShoppingItemOption('name')
 getShoppingItemOption('price')
 getShoppingItemOption('stock')
+
+type Student = {
+    name: string;
+    age: number;
+    grade: number
+}
+function getName<T extends Student>(student: T): T{
+    return student
+}
+function getKeys<T extends keyof Student>(student: T): T{
+    return student
+}
+
+getName({name: 'yeom', age: 10, grade: 100})
+// getName(true)
+getKeys('age')
+getKeys('grade')
