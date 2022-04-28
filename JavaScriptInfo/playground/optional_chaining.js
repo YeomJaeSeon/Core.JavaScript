@@ -16,6 +16,8 @@ console.log(user.address?.street) // 적절함
 //user는 무조건 존재하고, address는 존재하징낳을수있기에 이것은 좋은 옵셔널 체이닝
 
 let user3 = null;
+console.log('에러 발생하기 직전임')
+// console.log(user3.hello)
 let x = 0;
 user3?.sayHi(x++);
 console.log(x)
@@ -40,3 +42,11 @@ let user7 = null;
 let key = "firstName";
 console.log(user6?.[key])
 console.log(user7?.[key])
+
+
+console.log('end')
+
+const userr = null;
+let x5 = 0;
+userr?.sayHi(x5++); //단락평가
+console.log(x5)
