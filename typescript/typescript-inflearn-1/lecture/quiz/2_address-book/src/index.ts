@@ -106,3 +106,9 @@ class AddressBook {
 }
 
 new AddressBook();
+
+function hello(s: any) {
+  console.log(s);
+}
+
+let num = 3;
