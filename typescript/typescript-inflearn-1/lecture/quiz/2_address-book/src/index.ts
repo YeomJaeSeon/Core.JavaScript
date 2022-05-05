@@ -1,21 +1,6 @@
-enum PhoneType {
-  HOME = 'home',
-  OFFICE = 'office',
-  STUDIO = 'studio',
-}
-interface PhoneNumberDictionary {
-  [phone: string]: {
-    num: number;
-  };
-}
-
-interface Contact {
-  name: string;
-  address: string;
-  phones: PhoneNumberDictionary;
-}
-
 // api
+import { Contact, PhoneType, PhoneNumberDictionary } from './types';
+
 // TODO: 아래 함수의 반환 타입을 지정해보세요.
 function fetchContacts(): Promise<Contact[]> {
   // Promise resolve되는 타입 지정은 지네릭을 이용하자.
@@ -104,7 +89,7 @@ class AddressBook {
   }
   /* ------------------------------------------------ */
 }
-const div: HTMLDivElement = document.querySelector('div');
+const div = document.querySelector('div') as HTMLDivElement;
 div.innerText;
 
 new AddressBook();
