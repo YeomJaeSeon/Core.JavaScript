@@ -59,3 +59,39 @@ console.log(arrStr)
 arr.reduce(function(accumulator, item, idx, array){
 
 })
+
+arr = [1, 2, 3, 4, 5];
+arr = []
+let result = arr.reduce(function (sum, current){
+    return sum + current
+}, 0)
+
+console.log(result)
+
+let obj = {}
+console.log(typeof obj);
+console.log(typeof arr)
+
+console.log(Array.isArray(obj))
+console.log(Array.isArray(arr))
+
+//thisArhgs사용
+//명시적으로 this를 지정해주는 방법이쥐
+let army = {
+    minAge: 18,
+    maxAge: 27,
+    canJoin(user){
+        console.log(this)
+        return user.age >= this.minAge && user.age < this.maxAge
+    }
+}
+
+let users = [
+    {age: 16},
+    {age: 20},
+    {age: 23},
+    {age: 30}
+]
+
+let soldiers = users.filter(army.canJoin, army)
+console.log(soldiers)
