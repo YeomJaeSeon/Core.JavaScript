@@ -1,23 +1,26 @@
 // utils
-function $(selector: any) {
+function $(selector: string) {
   return document.querySelector(selector);
 }
-function getUnixTimestamp(date: any) {
+function getUnixTimestamp(date: string | number | Date) {
   return new Date(date).getTime();
 }
 
 // DOM
-const confirmedTotal = $('.confirmed-total');
-const deathsTotal = $('.deaths');
-const recoveredTotal = $('.recovered');
-const lastUpdatedTime = $('.last-updated-time');
-const rankList = $('.rank-list');
+// Element < HTMLElement < HTMLParagraphElement
+// 타입 계쏙 상속받아 점점 구체화된다.
+// 값은 Element인데, 변수에 HTMLParagraphElement라고 타입 명시하면, 변수가 가지고있는 값이 더 구체적이므로 타입에러난다.
+const confirmedTotal = $('.confirmed-total') as HTMLSpanElement; // 타입 assertion해주면 해당 변수의 타입도 해당 타입이된다.
+const deathsTotal = $('.deaths') as HTMLParagraphElement;
+const recoveredTotal = $('.recovered') as HTMLParagraphElement;
+const lastUpdatedTime = $('.last-updated-time') as HTMLParagraphElement;
+// const rankList:HTMLLIElement = $('.rank-list'); // 값은 `Element`, 변수의 타입은 Element를 구체화한 HTMLLiElement
 const deathsList = $('.deaths-list');
 const recoveredList = $('.recovered-list');
 const deathSpinner = createSpinnerElement('deaths-spinner');
 const recoveredSpinner = createSpinnerElement('recovered-spinner');
 
-function createSpinnerElement(id: any) {
+function createSpinnerElement(id: string) {
   const wrapperDiv = document.createElement('div');
   wrapperDiv.setAttribute('id', id);
   wrapperDiv.setAttribute(
@@ -42,8 +45,14 @@ function fetchCovidSummary() {
   return axios.get(url);
 }
 
-function fetchCountryInfo(countryCode: any, status: any) {
-  // params: confirmed, recovered, deaths
+enum CovisStatus {
+  Confirmed = 'confirmed',
+  Recovered = 'recovered',
+  Deaths = 'deaths'
+}
+
+function fetchCountryInfo(countryCode: string, status: CovisStatus) {
+  // status params: confirmed, recovered, deaths
   const url = `https://api.covid19api.com/country/${countryCode}/status/${status}`;
   return axios.get(url);
 }
@@ -77,14 +86,14 @@ async function handleListClick(event : any) {
   clearRecoveredList();
   startLoadingAnimation();
   isDeathLoading = true;
-  const { data: deathResponse } = await fetchCountryInfo(selectedId, 'deaths');
+  const { data: deathResponse } = await fetchCountryInfo(selectedId, CovisStatus.Deaths);
   const { data: recoveredResponse } = await fetchCountryInfo(
     selectedId,
-    'recovered',
+    CovisStatus.Recovered,
   );
   const { data: confirmedResponse } = await fetchCountryInfo(
     selectedId,
-    'confirmed',
+    CovisStatus.Confirmed,
   );
   endLoadingAnimation();
   setDeathsList(deathResponse);
