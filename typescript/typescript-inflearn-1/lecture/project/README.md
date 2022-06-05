@@ -13,6 +13,10 @@
 2. 명시적인 `any` 선언하기
     - `tsconfig.json`파일에 `noImplicitAny` 값을 `true`로 추가
 
+
+- babel: 최근 javascript를 오래된 버전으로 변환해줌.
+- eslint: javascript 커스텀하게 compile error 만들어줌
+- prettier: 코드 포맷터
 ## 참고 자료
 
 - [존스 홉킨스 코로나 현황](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6)
