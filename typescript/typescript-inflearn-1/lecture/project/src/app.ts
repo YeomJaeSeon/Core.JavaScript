@@ -1,3 +1,7 @@
+import axios from 'axios'; // 타입이 이미 잘 정의된 라이브러리 - index.d.ts가 존재한다.(index.d.ts: 자바스크립트 파일을 타입스크립트로 선언한 파일)
+import Chart from 'chart.js'; // chart.js 는 index.d.ts 파일이없다. 자바스크립트파일을 타입스크립트로 선언한 파일
+// -> @types/chart.js를 설치해서 해결 -> node_modules/@types 디렉토리에 생겻음!
+
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
@@ -14,7 +18,7 @@ const confirmedTotal = $('.confirmed-total') as HTMLSpanElement; // 타입 asser
 const deathsTotal = $('.deaths') as HTMLParagraphElement;
 const recoveredTotal = $('.recovered') as HTMLParagraphElement;
 const lastUpdatedTime = $('.last-updated-time') as HTMLParagraphElement;
-// const rankList:HTMLLIElement = $('.rank-list'); // 값은 `Element`, 변수의 타입은 Element를 구체화한 HTMLLiElement
+const rankList = $('.rank-list') as HTMLOListElement; // 값은 `Element`, 변수의 타입은 Element를 구체화한 HTMLLiElement
 const deathsList = $('.deaths-list');
 const recoveredList = $('.recovered-list');
 const deathSpinner = createSpinnerElement('deaths-spinner');

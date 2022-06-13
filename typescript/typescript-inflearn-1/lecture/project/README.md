@@ -12,6 +12,10 @@
     - [x] `tsc` 명령어로 타입스크립트 자바스크립트로 컴파일하기
 2. 명시적인 `any` 선언하기
     - `tsconfig.json`파일에 `noImplicitAny` 값을 `true`로 추가
+    - 가능한한 구체적인 타입으로 타입 정의
+3. 프로젝트 환경 구성
+    - babel, eslint, prettier 환경설정
+4. 외부라이브러리 모듈화
 
 
 - babel: 최근 javascript를 오래된 버전으로 변환해줌.
